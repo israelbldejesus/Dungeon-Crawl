@@ -269,7 +269,9 @@ namespace ClassDemo
                     validInput = true;
                 }
             } while (!validInput);
+
             item.shelfNum = shelfCount;
+            Environment.Exit(0);
             //  Calculate the total area of one bookcase in square inches
             bcTotalArea = bcArea + shelfCount * bcShelf;
 
