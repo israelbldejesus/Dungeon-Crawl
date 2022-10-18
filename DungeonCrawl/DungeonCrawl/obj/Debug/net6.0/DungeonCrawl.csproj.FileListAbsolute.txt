@@ -1,0 +1,15 @@
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\bin\Debug\net6.0\DungeonCrawl.exe
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\bin\Debug\net6.0\DungeonCrawl.deps.json
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\bin\Debug\net6.0\DungeonCrawl.runtimeconfig.json
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\bin\Debug\net6.0\DungeonCrawl.dll
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\bin\Debug\net6.0\DungeonCrawl.pdb
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.csproj.AssemblyReference.cache
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.AssemblyInfoInputs.cache
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.AssemblyInfo.cs
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.csproj.CoreCompileInputs.cache
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.dll
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\refint\DungeonCrawl.dll
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.pdb
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\DungeonCrawl.genruntimeconfig.cache
+C:\Users\israe\source\repos\Dungeon-Crawl\DungeonCrawl\DungeonCrawl\obj\Debug\net6.0\ref\DungeonCrawl.dll
