@@ -27,6 +27,38 @@ namespace DungeonCrawl
         /// This is the name of the playable character.
         /// </summary>
         public string Name;
+        /// <summary>
+        /// This is the stat that will determine chance of hitting.
+        /// </summary>
+        public int Dexterity;
+        /// <summary>
+        /// This is the factor that will determine chance of blocking attack.
+        /// </summary>
+        public int Armor;
+
+        public Score Score
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Room Room
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Dice Dice
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         /// <summary>
         /// This method will update the stats of the player whenever something happens.

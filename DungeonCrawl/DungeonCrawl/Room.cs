@@ -11,5 +11,21 @@ namespace DungeonCrawl
         /// This is how we know the type of room the player is in.
         /// </summary>
         public string typeOfRoom;
+        /// <summary>
+        /// This is howmany monsters will be in the room.
+        /// </summary>
+        public int numMonsters;
+        /// <summary>
+        /// Treasures that could be in the room.
+        /// </summary>
+        public string treasureItem;
+
+        /// <summary>
+        /// This is how we start the encounter or action for the room.
+        /// </summary>
+        public void Encounter()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
