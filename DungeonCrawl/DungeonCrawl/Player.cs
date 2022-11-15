@@ -10,15 +10,15 @@ namespace DungeonCrawl
         /// <summary>
         /// This will determine the base Attack and HP and Dexterity.
         /// </summary>
-        public int Level;
+        public int Level = 1;
         /// <summary>
         /// This is the health of the player.
         /// </summary>
-        public int HP;
+        public int HP = 100;//depends on level and race
         /// <summary>
         /// This is the base attack of the player.
         /// </summary>
-        public int Attack;
+        public int Attack = 10;
         /// <summary>
         /// This will modify the base stats of the player.
         /// </summary>
@@ -30,11 +30,19 @@ namespace DungeonCrawl
         /// <summary>
         /// This is the stat that will determine chance of hitting.
         /// </summary>
-        public int Dexterity;
+        public int Dexterity;//depende on level and race
         /// <summary>
         /// This is the factor that will determine chance of blocking attack.
         /// </summary>
         public int Armor;
+
+        //Cntructor for player class.
+
+        public Player(string s, string n)
+            {
+                Name= n;
+                Species= s; 
+            }
 
         public Score Score
         {
