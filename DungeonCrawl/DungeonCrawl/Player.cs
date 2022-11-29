@@ -67,6 +67,14 @@ namespace DungeonCrawl
             }
         }
 
+        public Treasure Treasure
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
 
         /// This method will update the stats of the player whenever something happens.
         public void UpdatePlayerStats()
