@@ -80,7 +80,7 @@ namespace DungeonCrawl
         /// </summary>
         public void UpdatePlayerStats()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
