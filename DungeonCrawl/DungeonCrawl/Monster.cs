@@ -7,7 +7,6 @@ namespace DungeonCrawl
 {
     public class Monster
     {
-
         /// This is the health of the monster.
         public int HP;
 
@@ -29,6 +28,9 @@ namespace DungeonCrawl
         /// This list will contain all the types of monsters.
         public List<Monster> MonsterType;
 
+        /// This is the experience the monster will drop when defeated.
+        public int XP;
+
         public Room Room
         {
             get => default;
@@ -37,9 +39,7 @@ namespace DungeonCrawl
             }
         }
 
-        /// <summary>
         /// This will calculate the stats for the mosnter.
-        /// </summary>
         public void CalcMosnterStats()
         {
             throw new System.NotImplementedException();
