@@ -39,13 +39,19 @@ namespace DungeonCrawl
 
                 Room activeRoom = new Room(party);
 
-                //This inner loop will hadle the actions of a player inside the room. 
-                bool innerloop1 = true;
-                do
+                //This counter will know what room we are in at the moment. 
+                int roomCounter = 1;
+                while(roomCounter < 10)
                 {
+                    if(roomCounter == 9)//When you get to the 9th room you will enter a boss room
+                    {
+                        //Boss room
+                    }
                     Console.WriteLine("Select your next move.");
 
-                } while (innerloop1);
+
+                    roomCounter++;
+                }
 
 
             }while(keeplooping);
