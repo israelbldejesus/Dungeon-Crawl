@@ -1,0 +1,12 @@
+Gold
+25
+Sword
+10
+Bow
+12
+Longsword
+8
+Shield
+15
+Armor
+18
