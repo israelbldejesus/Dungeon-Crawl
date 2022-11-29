@@ -34,7 +34,7 @@ namespace DungeonCrawl
         /// <summary>
         /// This list will contain all the types of monsters.
         /// </summary>
-        public List<Mosnter> MonsterType;
+        public List<Monster> MonsterType;
 
         public Room Room
         {
