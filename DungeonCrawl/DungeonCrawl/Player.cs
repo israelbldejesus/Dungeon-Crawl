@@ -5,6 +5,13 @@ using System.Text;
 
 namespace DungeonCrawl
 {
+    public enum ClassTypes
+    {
+        Warrior,
+        Hunter,
+        Paladin,
+        Tank
+    }
     public class Player
     {
         /// <summary>
@@ -22,7 +29,7 @@ namespace DungeonCrawl
         /// <summary>
         /// This will modify the base stats of the player.
         /// </summary>
-        public string Species;
+        public int ClassType;
         /// <summary>
         /// This is the name of the playable character.
         /// </summary>
@@ -38,10 +45,10 @@ namespace DungeonCrawl
 
         //Cntructor for player class.
 
-        public Player(string s, string n)
+        public Player(int s, string n)
             {
                 Name= n;
-                Species= s; 
+                ClassType = s; 
             }
 
         public Score Score

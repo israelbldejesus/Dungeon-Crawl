@@ -23,9 +23,16 @@ namespace DungeonCrawl
         /// <summary>
         /// This is how we start the encounter or action for the room.
         /// </summary>
+        
+        public List<Player> partyOfPlayers;
         public void Encounter()
         {
             throw new System.NotImplementedException();
+        }
+
+        public Room(List<Player> p)
+        {
+            partyOfPlayers = p;
         }
     }
 }
