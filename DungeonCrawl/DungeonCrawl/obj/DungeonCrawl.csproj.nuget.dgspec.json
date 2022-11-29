@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {}
+    "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {
+    "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+        "projectUniqueName": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
         "projectName": "DungeonCrawl",
-        "projectPath": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
-        "packagesPath": "C:\\Users\\israe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
+        "projectPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+        "packagesPath": "C:\\Users\\Jacob Ramos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\israe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jacob Ramos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,17 +45,11 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }
