@@ -31,6 +31,9 @@ namespace DungeonCrawl
         /// This is the experience the monster will drop when defeated.
         public int XP;
 
+        /// This is describing the monster.
+        public string Description;
+
         public Room Room
         {
             get => default;
