@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+      "projectUniqueName": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl2\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
       "projectName": "DungeonCrawl",
-      "projectPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+      "projectPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl2\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
       "packagesPath": "C:\\Users\\Jacob Ramos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
+      "outputPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl2\\DungeonCrawl\\DungeonCrawl\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jacob Ramos\\AppData\\Roaming\\NuGet\\NuGet.Config",

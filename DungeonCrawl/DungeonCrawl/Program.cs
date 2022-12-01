@@ -12,17 +12,17 @@ namespace DungeonCrawl
         static void Main(string[] args)
         {
             //These are the global variables that will be used in the main program.
-            List<Player> party = new List<Player>();//This list will keep track of the players
+            List<ClassStats.Player> party = new List<ClassStats.Player>();//This list will keep track of the players
 
             // These are the methods for the main program. 
-            static Player CreatePlayer()
+            static ClassStats.Player CreatePlayer()
             {
                 Console.WriteLine("Enter your player name.");
                 string input1 = Console.ReadLine();
                 Console.WriteLine("Select the class you want form the options.");
                 int input2 = Convert.ToInt32(Console.ReadLine());
 
-                Player player = new Player(input2, input1);
+                ClassStats.Player player = new ClassStats.Player(input2, input1);
 
                 return player;
             }
