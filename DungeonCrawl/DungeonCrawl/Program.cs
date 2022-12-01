@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using static System.Formats.Asn1.AsnWriter;
-//  This program will calculated the required amount of wood needed to build a specified bookcase.
+//  This program will be a role-playing game simulator. Player(s) will be able choose a character and go through a series of rooms, fight monsters, find treasure and possibly emerge victoriously! 
 
-//  Author:  Brian Arthaud-Day
+//  Author:  Israel, Jacob, Vivian
 
 namespace DungeonCrawl
 {
@@ -34,8 +35,9 @@ namespace DungeonCrawl
     {
         static void Main(string[] args)
         {
-            //These are the global variables that will be used in the main program.
-            List<Player> party = new List<Player>();//This list will keep track of the players
+            //  These are the global variables that will be used in the main program.
+            List<Player> party = new List<Player>();//  This list will keep track of the players
+
             //  ClassStats variables
             List<ClassStats> classes = new List<ClassStats>();  //  Declare and initialize the list of Class Stats
             classes.Add(new ClassStats("Warrior", 70, 7, 6, 7));
@@ -45,14 +47,14 @@ namespace DungeonCrawl
 
             int modelCount = classes.Count - 1;  //  The number of Class Types available
 
-            void Pause()//This method will add a pause.
+            void Pause()//  This method will add a pause.
             {
                 Console.WriteLine("Press any button to continue.");
                 Console.ReadKey();
                 //Console.Clear();
             }
 
-            bool VerifyChoiceYN()//THis method will ask for yes or no and very for correct input. 
+            bool VerifyChoiceYN()// This method will ask for yes or no and verify for correct input. 
             {
                 bool choice = false;
 
@@ -106,8 +108,9 @@ namespace DungeonCrawl
             Console.Clear() ;
 
             bool keeplooping = true;
-            do{
-                //Wake up, then describe the scene.
+            do
+            {
+                //  Wake up, then describe the scene.
                 Console.WriteLine("Wake up, then describe the scene.");
                 Pause();
                 Console.Clear();
@@ -116,13 +119,13 @@ namespace DungeonCrawl
 
                 Room activeRoom = new Room(party);
 
-                //This counter will know what room we are in at the moment. 
+                //  This counter will know what room we are in at the moment. 
                 int roomCounter = 1;
                 while(roomCounter < 10)
                 {
-                    if(roomCounter == 9)//When you get to the 9th room you will enter a boss room
+                    if(roomCounter == 9)//  When you get to the 9th room you will enter a boss room
                     {
-                        //Boss room
+                        //  Boss room
                     }
                     Console.WriteLine("Select your next move.");
 
@@ -131,7 +134,7 @@ namespace DungeonCrawl
                 }
 
 
-            }while(keeplooping);
+            } while(keeplooping);
 
            
             

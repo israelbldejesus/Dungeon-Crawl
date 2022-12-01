@@ -43,7 +43,7 @@ namespace DungeonCrawl
             }
         }
 
-        /// This will calculate the stats for the mosnter.
+        /// This will calculate the stats for the monster.
         public void CalcMosnterStats()
         {
             throw new System.NotImplementedException();
