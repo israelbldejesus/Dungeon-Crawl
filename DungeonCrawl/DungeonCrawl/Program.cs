@@ -88,7 +88,7 @@ namespace DungeonCrawl
             {
                 Console.WriteLine("Enter your player name: ");
                 string input1 = Console.ReadLine();
-                Console.WriteLine("Select the class you want form the options:");
+                Console.WriteLine("Select the class you want from the options:");
 
                 for(int i = 0; i < c.Count(); i++)
                 {
