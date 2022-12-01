@@ -8,7 +8,7 @@ namespace DungeonCrawl
     public class Score
     {
         /// This is how many points the player(s) have collected in the game session.
-        public int Score;
+        public int highScore;
 
         /// This will calcualte the score.
         public int CalcScore()
