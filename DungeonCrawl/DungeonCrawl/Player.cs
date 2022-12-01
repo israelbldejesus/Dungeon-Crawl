@@ -15,7 +15,7 @@ namespace DungeonCrawl
                 public int Level = 1;
 
                 /// This is the health of the player.
-                public int HP = 100;//depends on level and race
+                public int HP = 100; // depends on level and race
 
                 /// This is the base attack of the player.
                 public int Attack = 10;
@@ -27,7 +27,7 @@ namespace DungeonCrawl
                 public string Name;
 
                 /// This is the stat that will determine chance of hitting.
-                public int Dexterity;//depende on level and race
+                public int Dexterity; //    depends on level and race
 
                 /// This is the factor that will determine chance of blocking attack.
                 public int Armor;
