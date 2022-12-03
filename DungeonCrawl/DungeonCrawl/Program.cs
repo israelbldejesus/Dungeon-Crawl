@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using static System.Formats.Asn1.AsnWriter;
 //  This program will be a role-playing game simulator. Player(s) will be able choose a character and go through a series of rooms, fight monsters, find treasure and possibly emerge victoriously! 
 
@@ -111,7 +112,11 @@ namespace DungeonCrawl
             do
             {
                 //  Wake up, then describe the scene.
-                Console.WriteLine("Wake up, then describe the scene.");
+                Console.WriteLine(" You wake up in daze. Your head hurts really bad and you don't know where you are." +
+                    " You decide to look around and notice you are in an empty room with three doors. " +
+                    "You think to yourself how did I get here?"); //Added more story here.
+                Console.WriteLine("Which door do LayoutKind wish to go through"); //This is meant to ask and determine which door you head through.
+                string RoomChoice = Console.ReadLine();
                 Pause();
                 Console.Clear();
 
