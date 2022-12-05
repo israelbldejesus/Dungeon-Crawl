@@ -35,6 +35,9 @@ namespace DungeonCrawl
         /// This is describing the monster.
         public string Description;
 
+        // add constructor for monster?
+        
+        // streamread file and add monster to file through list
 
         //static void Main(string[] args)
         //{
