@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using static System.Formats.Asn1.AsnWriter;
-//  This program will be a role-playing game simulator. Player(s) will be able choose a character and go through a series of rooms, fight monsters, find treasure and possibly emerge victoriously! 
 
+//  This program will be a role-playing game simulator. Player(s) will be able choose a character and go through a series of rooms, fight monsters, find treasure and possibly emerge victoriously! 
+//  Class: MIS 411
 //  Author:  Israel, Jacob, Vivian
 
 namespace DungeonCrawl
@@ -114,8 +115,8 @@ namespace DungeonCrawl
                 //  Wake up, then describe the scene.
                 Console.WriteLine(" You wake up in daze. Your head hurts really bad and you don't know where you are." +
                     " You decide to look around and notice you are in an empty room with three doors. " +
-                    "You think to yourself how did I get here?"); //Added more story here.
-                Console.WriteLine("Which door do LayoutKind wish to go through"); //This is meant to ask and determine which door you head through.
+                    "You think to yourself how did I get here?"); //    Added more story here.
+                Console.WriteLine("Which door do LayoutKind wish to go through"); //    This is meant to ask and determine which door you head through.
                 string RoomChoice = Console.ReadLine();
                 Pause();
                 Console.Clear();
@@ -126,9 +127,9 @@ namespace DungeonCrawl
 
                 //  This counter will know what room we are in at the moment. 
                 int roomCounter = 1;
-                while(roomCounter < 10)
+                while (roomCounter < 10)
                 {
-                    if(roomCounter == 9)//  When you get to the 9th room you will enter a boss room
+                    if (roomCounter == 9)//  When you get to the 9th room you will enter a boss room
                     {
                         //  Boss room
                     }
@@ -139,7 +140,7 @@ namespace DungeonCrawl
                 }
 
 
-            } while(keeplooping);
+            } while (keeplooping);
 
            
             
