@@ -97,44 +97,39 @@ namespace DungeonCrawl
 
                 public Monster(string mt, int l, int a, int ar, int d, int xp)
                 {
-                    name = n;
-                    coat = c;
-                    classifiction = cs;
-                    legs = l;
-                    weight = w;
+                    MonsterType = mt;
+                    Level = l;
+                    Attack = a;
+                    Armor = ar;
+                    Dexterity = d;
+                    XP = xp;
                 }
 
                 public void PrintAnimal()
                 {
-                    Console.WriteLine("Name:  {1}\tClassification:  {0}", classifiction, name);
-                    Console.WriteLine("Legs:  {0}\tWeight:  {1} lbs\tCoat:  {2}", legs, weight, coat);
+                    Console.WriteLine("Level:  {1}\tMonster Type:  {0}", Level, MonsterType);
+                    Console.WriteLine("Attack:  {0}\tArmor:  {1} lbs\tDexterity:  {2}\tXP:  {3}", Attack, Armor, Dexterity, XP);
                 }
-
-                public override string ToString()
-                {
-                    string output = name + "," + (int)coat + "," + (int)classifiction + "," + legs + "," + weight;
-                    return output;
-                }
-        }
-
-        // These are the methods for the main program. 
-        static Player CreatePlayer(List<ClassStats> c)
-            {
-                Console.WriteLine("Enter your player name: ");
-                string input1 = Console.ReadLine();
-                Console.WriteLine("Select the class you want from the options:");
-
-                for(int i = 0; i < c.Count(); i++)
-                {
-                    Console.WriteLine(i+1 + "\t" + c[i].ToString());
-                }
-
-                int input2 = Convert.ToInt32(Console.ReadLine());
-
-                Player player = new Player(input2, input1);
-
-                return player;
             }
+
+    // These are the methods for the main program. 
+    static Player CreatePlayer(List<ClassStats> c)
+        {
+            Console.WriteLine("Enter your player name: ");
+            string input1 = Console.ReadLine();
+            Console.WriteLine("Select the class you want from the options:");
+
+            for(int i = 0; i < c.Count(); i++)
+            {
+                Console.WriteLine(i+1 + "\t" + c[i].ToString());
+            }
+
+            int input2 = Convert.ToInt32(Console.ReadLine());
+
+            Player player = new Player(input2, input1);
+
+            return player;
+        }
 
             //art from https://www.asciiart.eu/mythology/dragons
             Console.WriteLine("            _                                      _                   \r\n          _/(               <~\\  /~>               )\\_                 \r\n        .~   ~-.            /^-~~-^\\            .-~   ~.               \r\n     .-~        ~-._       : /~\\/~\\ :       _.-~        ~-.            \r\n  .-~               ~~--.__: \\0/\\0/ ;__,--~~               ~-.         \r\n /                        ./\\. ^^ ./\\.                        \\        \r\n.                         |  ( )( )  |                         .       \r\n-~~--.        _.---._    /~   U`'U   ~\\    _.---._        .--~~-       \r\n      ~-. .--~       ~~-|              |-~~       ~--. .-~             \r\n         ~              |  :        :  |_             ~                \r\n                        `\\,'  :  :  `./' ~~--._                        \r\n                       .(<___.'  `,___>),--.___~~-.                    \r\n                       ~ (((( ~--~ ))))      _.~  _)                   \r\n                          ~~~      ~~~/`.--~ _.--~                     \r\n                                      \\,~~~~~                          \r\n                          Dungeon Crawl                                \r\n                          ======= =====       ");

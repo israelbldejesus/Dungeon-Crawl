@@ -8,10 +8,6 @@ namespace DungeonCrawl
 {
     public class Monster
     {
-        struct Monster1(string mt, int h, int l, int a, int ar, int d, int xp)
-        {
-            
-        }
         /// This is the health of the monster.
         public int HP;
 
@@ -38,19 +34,6 @@ namespace DungeonCrawl
 
         /// This is describing the monster.
         public string Description;
-
-        // add constructor for monster?
-
-        List<Animal> zoo = new List<Animal>();
-        string input;
-        int counter, coatInput, classInput;
-
-        string path = "animals.txt";
-        string path2 = "zoo.txt";
-
-            //  Write code to open the "animals.txt" file and read the contents into Animal object.  Add those objects to the 'zoo' List.
-            //  Be sure to account for a missing file exception handling.  It is useful to print the newly created contents for verification.
-            //  Some data types will need to be converted.  Consider Exception Handling for those items.
 
 /*
  *  if (File.Exists(path))
