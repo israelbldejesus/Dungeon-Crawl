@@ -86,8 +86,39 @@ namespace DungeonCrawl
                 return choice;
             }
 
-            // These are the methods for the main program. 
-            static Player CreatePlayer(List<ClassStats> c)
+            static void CreateMonster(List<Monster> monsters)
+            {
+                public string MonsterType;
+                public int Level;
+                public int Attack;
+                public int Armor;
+                public int Dexterity;
+                public int XP;
+
+                public Monster(string mt, int l, int a, int ar, int d, int xp)
+                {
+                    name = n;
+                    coat = c;
+                    classifiction = cs;
+                    legs = l;
+                    weight = w;
+                }
+
+                public void PrintAnimal()
+                {
+                    Console.WriteLine("Name:  {1}\tClassification:  {0}", classifiction, name);
+                    Console.WriteLine("Legs:  {0}\tWeight:  {1} lbs\tCoat:  {2}", legs, weight, coat);
+                }
+
+                public override string ToString()
+                {
+                    string output = name + "," + (int)coat + "," + (int)classifiction + "," + legs + "," + weight;
+                    return output;
+                }
+        }
+
+        // These are the methods for the main program. 
+        static Player CreatePlayer(List<ClassStats> c)
             {
                 Console.WriteLine("Enter your player name: ");
                 string input1 = Console.ReadLine();

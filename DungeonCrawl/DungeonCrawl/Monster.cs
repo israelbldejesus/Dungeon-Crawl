@@ -6,37 +6,12 @@ using System.IO;
 
 namespace DungeonCrawl
 {
-    /*struct Animal
-    {
-        public string name;
-        public Coat coat;
-        public Classifiction classifiction;
-        public int legs;
-        public double weight;
-
-        public Animal(string n, Coat c, Classifiction cs, int l, double w)
-        {
-            name = n;
-            coat = c;
-            classifiction = cs;
-            legs = l;
-            weight = w;
-        }
-
-        public void PrintAnimal()
-        {
-            Console.WriteLine("Name:  {1}\tClassification:  {0}", classifiction, name);
-            Console.WriteLine("Legs:  {0}\tWeight:  {1} lbs\tCoat:  {2}", legs, weight, coat);
-        }
-
-        public override string ToString()
-        {
-            string output = name + "," + (int)coat + "," + (int)classifiction + "," + legs + "," + weight;
-            return output;
-        }
-    }*/
     public class Monster
     {
+        struct Monster1(string mt, int h, int l, int a, int ar, int d, int xp)
+        {
+            
+        }
         /// This is the health of the monster.
         public int HP;
 
