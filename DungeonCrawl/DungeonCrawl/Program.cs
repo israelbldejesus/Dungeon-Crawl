@@ -49,6 +49,7 @@ namespace DungeonCrawl
 
             int modelCount = classes.Count - 1;  //  The number of Class Types available
 
+
             void Pause()//  This method will add a pause.
             {
                 Console.WriteLine("Press any button to continue.");

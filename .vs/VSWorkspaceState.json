@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DungeonCrawl",
+    "\\DungeonCrawl\\DungeonCrawl"
   ],
-  "SelectedNode": "\\DungeonCrawl.sln",
+  "SelectedNode": "\\DungeonCrawl\\DungeonCrawl\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
