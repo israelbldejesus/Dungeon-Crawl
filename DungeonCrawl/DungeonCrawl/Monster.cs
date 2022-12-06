@@ -8,6 +8,16 @@ namespace DungeonCrawl
 {
     public class Monster
     {
+        public Monster(string mt, int l, int a, int ar, int d, int xp) 
+        {
+            MonsterType = mt;
+            Level = l;
+            Attack = a;
+            Armor = ar;
+            Dexterity = d;
+            XP = xp;
+        }
+
         /// This is the health of the monster.
         public int HP;
 
@@ -27,68 +37,13 @@ namespace DungeonCrawl
         public bool Boss;
 
         /// This list will contain all the types of monsters.
-        public List<Monster> MonsterType;
+        public string MonsterType;
 
         /// This is the experience the monster will drop when defeated.
         public int XP;
 
         /// This is describing the monster.
         public string Description;
-
-/*
- *  if (File.Exists(path))
-{
-    StreamReader sr = new StreamReader(path);
-    while (!sr.EndOfStream)
-    {
-        Animal animal = new Animal();
-        animal.name = sr.ReadLine();
-        animal.coat = (Coat)Convert.ToInt32(sr.ReadLine());
-        animal.classifiction = (Classifiction)Convert.ToInt32(sr.ReadLine());
-        animal.legs = Convert.ToInt32(sr.ReadLine());
-        animal.weight = Convert.ToDouble(sr.ReadLine());
-
-        animal.PrintAnimal();
-
-        zoo.Add(animal);
-    }
-}
-else
-{
-    Console.WriteLine("Could not find the file");
-}*/
-// streamread file and add monster to file through list
-
-static void Main(string[] args)
-{
-// inserting external file and adding monsters to file
-string path = "Monster.txt"; // file for monster
-//string excerpt = null;
-
-if (File.Exists(path)) // if file exist, execute if code
-{
-    using (StreamReader sr = new StreamReader(path))
-    {
-        while (!sr.EndOfStream)
-        {
-
-        }
-
-        sr.Close();
-        //Pause();
-    }
-    using (StreamReader sr2 = new StreamReader(path))
-    {
-        while (!sr2.EndOfStream)
-        {
-            Monster MonsterType = new Monster();
-        }
-
-        sr2.Close();
-    }
-}
-}
-
 
 public Room Room
 {

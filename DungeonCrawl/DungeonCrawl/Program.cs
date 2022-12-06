@@ -39,6 +39,7 @@ namespace DungeonCrawl
         {
             //  These are the global variables that will be used in the main program.
             List<Player> party = new List<Player>();//  This list will keep track of the players
+            List<Monster> monsters = new List<Monster>(); // keeps track of the monsters
 
             //  ClassStats variables
             List<ClassStats> classes = new List<ClassStats>();  //  Declare and initialize the list of Class Stats
@@ -86,35 +87,9 @@ namespace DungeonCrawl
                 return choice;
             }
 
-            static void CreateMonster(List<Monster> monsters)
-            {
-                public string MonsterType;
-                public int Level;
-                public int Attack;
-                public int Armor;
-                public int Dexterity;
-                public int XP;
-
-                public Monster(string mt, int l, int a, int ar, int d, int xp)
-                {
-                    MonsterType = mt;
-                    Level = l;
-                    Attack = a;
-                    Armor = ar;
-                    Dexterity = d;
-                    XP = xp;
-                }
-
-                public void PrintAnimal()
-                {
-                    Console.WriteLine("Level:  {1}\tMonster Type:  {0}", Level, MonsterType);
-                    Console.WriteLine("Attack:  {0}\tArmor:  {1} lbs\tDexterity:  {2}\tXP:  {3}", Attack, Armor, Dexterity, XP);
-                }
-            }
-
     // These are the methods for the main program. 
     static Player CreatePlayer(List<ClassStats> c)
-        {
+    {
             Console.WriteLine("Enter your player name: ");
             string input1 = Console.ReadLine();
             Console.WriteLine("Select the class you want from the options:");
