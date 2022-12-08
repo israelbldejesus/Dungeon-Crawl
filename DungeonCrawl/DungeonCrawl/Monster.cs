@@ -8,7 +8,8 @@ namespace DungeonCrawl
 {
     public class Monster
     {
-        public Monster(string mt, int l, int a, int ar, int d, int xp) 
+        //Constructor for monster. 
+        public Monster(string mt, int l, int a, int ar, int d, int xp)
         {
             MonsterType = mt;
             Level = l;
@@ -45,19 +46,21 @@ namespace DungeonCrawl
         /// This is describing the monster.
         public string Description;
 
-public Room Room
-{
-get => default;
-set
-{
+        public Room Room
+        {
+            get => default;
+            set
+            {
 
-}
-}
+            }
+        }
 
-/// This will calculate the stats for the monster.
-public void CalcMosnterStats()
-{
-throw new System.NotImplementedException();
-}
-}
+        /// This will calculate the stats for the monster.
+        public void CalcMosnterStats()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        
+    }
 }

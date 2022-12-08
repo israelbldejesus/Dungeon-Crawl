@@ -55,7 +55,6 @@ namespace DungeonCrawl
             {
                 Console.WriteLine("Press any button to continue.");
                 Console.ReadKey();
-                //Console.Clear();
             }
 
             bool VerifyChoiceYN()// This method will ask for yes or no and verify for correct input. 
@@ -87,33 +86,101 @@ namespace DungeonCrawl
                 return choice;
             }
 
-    // These are the methods for the main program. 
-    static Player CreatePlayer(List<ClassStats> c)
-    {
-            Console.WriteLine("Enter your player name: ");
-            string input1 = Console.ReadLine();
-            Console.WriteLine("Select the class you want from the options:");
-
-            for(int i = 0; i < c.Count(); i++)
+            static List<Monster> AddMonsters(string path)//This method is for adding the monsters here.
             {
-                Console.WriteLine(i+1 + "\t" + c[i].ToString());
+                List<Monster> monsters = new List<Monster>();
+                if (File.Exists(path))
+                {
+                    StreamReader sr = new StreamReader(path);
+                    while (!sr.EndOfStream)
+                    {
+                        string mt = sr.ReadLine();
+                        int l = Convert.ToInt32(sr.ReadLine());
+                        int a = Convert.ToInt32(sr.ReadLine());
+                        int ar = Convert.ToInt32(sr.ReadLine());
+                        int d = Convert.ToInt32(sr.ReadLine());
+                        int xp = Convert.ToInt32(sr.ReadLine());
+
+                        monsters.Add(new Monster(mt, l, a, ar, d, xp));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Could not find the file");
+                }
+                return monsters;
             }
 
-            int input2 = Convert.ToInt32(Console.ReadLine());
+            //This class will verify the input of the user. 
+            int ChooseClass(List<ClassStats> c)
+            {
+                int output = 0;
+                bool loop2 = true;
+                while (loop2)
+                {
+                    try
+                    {
+                        Console.WriteLine("Select a class by entering a number between 1 and 4: ");
+                        output = Convert.ToInt32(Console.ReadLine());
+                        if (output < 1 || output > 4)
+                        {
+                            Console.WriteLine("Enter a valid number between 1 and 4.");
+                            Pause();
+                            
+                            loop2 = true;
+                        }
+                        else
+                        {
+                            loop2 = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Enter a valid number between 1 and 4.");
+                        Pause();
+                        
+                        loop2 = true;
+                    }
+                }
 
-            Player player = new Player(input2, input1);
+                return output;
+            }
 
-            return player;
-        }
+            // These are the methods for the main program. 
+            Player CreatePlayer(List<ClassStats> c)
+            {
+                Console.WriteLine("Enter your player name: ");
+                string input1 = Console.ReadLine();
+                Console.WriteLine("Select the class you want from the options:");
+
+                for (int i = 0; i < c.Count(); i++)
+                {
+                    Console.WriteLine("\n" + (i + 1) + "\t" + c[i].ToString());
+                }
+
+                int input2 = ChooseClass(c);
+
+
+
+                Player player = new Player(input2, input1);
+
+                Console.WriteLine("Player created!");
+                return player;
+            }
 
             //art from https://www.asciiart.eu/mythology/dragons
             Console.WriteLine("            _                                      _                   \r\n          _/(               <~\\  /~>               )\\_                 \r\n        .~   ~-.            /^-~~-^\\            .-~   ~.               \r\n     .-~        ~-._       : /~\\/~\\ :       _.-~        ~-.            \r\n  .-~               ~~--.__: \\0/\\0/ ;__,--~~               ~-.         \r\n /                        ./\\. ^^ ./\\.                        \\        \r\n.                         |  ( )( )  |                         .       \r\n-~~--.        _.---._    /~   U`'U   ~\\    _.---._        .--~~-       \r\n      ~-. .--~       ~~-|              |-~~       ~--. .-~             \r\n         ~              |  :        :  |_             ~                \r\n                        `\\,'  :  :  `./' ~~--._                        \r\n                       .(<___.'  `,___>),--.___~~-.                    \r\n                       ~ (((( ~--~ ))))      _.~  _)                   \r\n                          ~~~      ~~~/`.--~ _.--~                     \r\n                                      \\,~~~~~                          \r\n                          Dungeon Crawl                                \r\n                          ======= =====       ");
             Pause();
-            Console.Clear() ;
+            Console.Clear();
 
             bool keeplooping = true;
             do
             {
+                party.Add(CreatePlayer(classes));//This will call a method to create the player. 
+
+                monsters = AddMonsters("Monster.txt");
+
                 //  Wake up, then describe the scene.
                 Console.WriteLine(" You wake up in daze. Your head hurts really bad and you don't know where you are." +
                     " You decide to look around and notice you are in an empty room with three doors. " +
@@ -123,7 +190,7 @@ namespace DungeonCrawl
                 Pause();
                 Console.Clear();
 
-                party.Add(CreatePlayer(classes));
+                
 
                 Room activeRoom = new Room(party);
 
@@ -137,19 +204,9 @@ namespace DungeonCrawl
                     }
                     Console.WriteLine("Select your next move.");
 
-
                     roomCounter++;
                 }
-
-
             } while (keeplooping);
-
-           
-            
-            //Make the player create their character. 
-
-            
-            
         }
     }
 }
