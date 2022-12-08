@@ -111,7 +111,7 @@ namespace DungeonCrawl
                 return monsters;
             }
 
-            //  This class will verify the input of the user. 
+            //  This method will verify the input of the user. 
             int ChooseClass(List<ClassStats> c)
             {
                 int output = 0;
@@ -169,6 +169,14 @@ namespace DungeonCrawl
                 return player;
             }
 
+
+            /*
+             * ************************************************************************************************************************************************************
+             * This is where the main code and logic starts.
+             * ************************************************************************************************************************************************************
+             */
+
+
             //art from https://www.asciiart.eu/mythology/dragons
             Console.WriteLine("            _                                      _                   \r\n          _/(               <~\\  /~>               )\\_                 \r\n        .~   ~-.            /^-~~-^\\            .-~   ~.               \r\n     .-~        ~-._       : /~\\/~\\ :       _.-~        ~-.            \r\n  .-~               ~~--.__: \\0/\\0/ ;__,--~~               ~-.         \r\n /                        ./\\. ^^ ./\\.                        \\        \r\n.                         |  ( )( )  |                         .       \r\n-~~--.        _.---._    /~   U`'U   ~\\    _.---._        .--~~-       \r\n      ~-. .--~       ~~-|              |-~~       ~--. .-~             \r\n         ~              |  :        :  |_             ~                \r\n                        `\\,'  :  :  `./' ~~--._                        \r\n                       .(<___.'  `,___>),--.___~~-.                    \r\n                       ~ (((( ~--~ ))))      _.~  _)                   \r\n                          ~~~      ~~~/`.--~ _.--~                     \r\n                                      \\,~~~~~                          \r\n                          Dungeon Crawl                                \r\n                          ======= =====       ");
             Pause();
@@ -181,16 +189,24 @@ namespace DungeonCrawl
 
                 monsters = AddMonsters("Monster.txt");
 
-                //  Wake up, then describe the scene.
-                Console.WriteLine(" You wake up in daze. Your head hurts really bad and you don't know where you are." +
-                    " You decide to look around and notice you are in an empty room with three doors. " +
-                    "You think to yourself how did I get here?"); //    Added more story here.
-                Console.WriteLine("Which door do LayoutKind wish to go through"); //    This is meant to ask and determine which door you head through.
-                string RoomChoice = Console.ReadLine();
+                Console.WriteLine("\nLoading...");//Adding dramatic loading screen
+                Thread.Sleep(4000);
+                Console.WriteLine("Done!");
                 Pause();
                 Console.Clear();
 
-                
+                //  Wake up, then describe the scene.
+                Console.WriteLine("You wake up in daze. ");
+                Thread.Sleep(2000);
+                Console.WriteLine("Your head hurts really bad and you don't know where you are.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You decide to look around and notice you are in an empty room with three doors. ");
+                Thread.Sleep(2000);
+                Console.WriteLine("You think to yourself how did I get here?"); //    Added more story here.
+                Thread.Sleep(3000);
+                Pause();
+                Console.Clear();
+                          
 
                 Room activeRoom = new Room(party);
 
@@ -202,8 +218,12 @@ namespace DungeonCrawl
                     {
                         //  Boss room
                     }
-                    Console.WriteLine("Select your next move.");
-
+                    else
+                    {
+                        Console.WriteLine("Which door do wish to go through?"); //    This is meant to ask and determine which door you head through.
+                        Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒███████████████████████▒▒▒▒█████████████████████████████████▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒╔╗▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╔═══╗▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔═══╗▒▒▒▒▒█▒▒▒▒▒╔═══╗▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚╗║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║╔═╗║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒║╔═╗║▒▒▄▄▒█▒▄▄▒▒║╔═╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒║║▒▒▒▒▒██▌█▒▒▒▒▒▒█▒▒▒▒██▌▒▒▒╚╝╔╝║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒╚╝╔╝║▒▐██▒█▒██▌▒╚╝╔╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝╚╗▒▒▒▒▀▀▒█▒▒▒▒▒▒█▒▒▒▒▀▀▒▒▒▒╔═╝╔╝▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔╗╚╗║▒▒▒▒▒█▒▒▒▒▒╔╗╚╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚══╝▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║║╚═╗▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒║╚═╝║▒▒▒▒▒█▒▒▒▒▒║╚═╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╚═══╝▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒╚═══╝▒▒▒▒▒█▒▒▒▒▒╚═══╝▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒██████████████████████▒▒▒▒▒█████████████████████████████████▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n");
+                        string RoomChoice = Console.ReadLine();
+                    }
                     roomCounter++;
                 }
             } while (keeplooping);
