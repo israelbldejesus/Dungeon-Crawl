@@ -38,7 +38,7 @@ namespace DungeonCrawl
         static void Main(string[] args)
         {
             //  These are the global variables that will be used in the main program.
-            List<Player> party = new List<Player>();//  This list will keep track of the players
+            List<Player> party = new List<Player>(); //  This list will keep track of the players
             List<Monster> monsters = new List<Monster>(); // keeps track of the monsters
 
             //  ClassStats variables
@@ -51,13 +51,13 @@ namespace DungeonCrawl
             int modelCount = classes.Count - 1;  //  The number of Class Types available
 
 
-            void Pause()//  This method will add a pause.
+            void Pause() //  This method will add a pause.
             {
                 Console.WriteLine("Press any button to continue.");
                 Console.ReadKey();
             }
 
-            bool VerifyChoiceYN()// This method will ask for yes or no and verify for correct input. 
+            bool VerifyChoiceYN() // This method will ask for yes or no and verify for correct input. 
             {
                 bool choice = false;
 
@@ -86,7 +86,7 @@ namespace DungeonCrawl
                 return choice;
             }
 
-            static List<Monster> AddMonsters(string path)//This method is for adding the monsters here.
+            static List<Monster> AddMonsters(string path) //    This method is for adding the monsters here.
             {
                 List<Monster> monsters = new List<Monster>();
                 if (File.Exists(path))
@@ -111,7 +111,7 @@ namespace DungeonCrawl
                 return monsters;
             }
 
-            //This class will verify the input of the user. 
+            //  This class will verify the input of the user. 
             int ChooseClass(List<ClassStats> c)
             {
                 int output = 0;
@@ -177,7 +177,7 @@ namespace DungeonCrawl
             bool keeplooping = true;
             do
             {
-                party.Add(CreatePlayer(classes));//This will call a method to create the player. 
+                party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
 
                 monsters = AddMonsters("Monster.txt");
 

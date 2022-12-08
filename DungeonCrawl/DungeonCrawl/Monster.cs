@@ -8,7 +8,7 @@ namespace DungeonCrawl
 {
     public class Monster
     {
-        //Constructor for monster. 
+        // Constructor for monster. 
         public Monster(string mt, int l, int a, int ar, int d, int xp)
         {
             MonsterType = mt;
