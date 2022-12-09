@@ -40,6 +40,7 @@ namespace DungeonCrawl
             //  These are the global variables that will be used in the main program.
             List<Player> party = new List<Player>(); //  This list will keep track of the players
             List<Monster> monsters = new List<Monster>(); // keeps track of the monsters
+            List<Treasure> treasures = new List<Treasure>(); // list to keep track of treasures
 
             //  ClassStats variables
             List<ClassStats> classes = new List<ClassStats>();  //  Declare and initialize the list of Class Stats
@@ -109,6 +110,27 @@ namespace DungeonCrawl
                     Console.WriteLine("Could not find the file");
                 }
                 return monsters;
+            }
+
+            static List<Treasure> AddTreasures(string path1)    // method for adding treasures
+            {
+                List<Treasure> treasures = new List<Treasure>();
+                if (File.Exists(path1))
+                {
+                    StreamReader sr = new StreamReader(path1);
+                    while (!sr.EndOfStream)
+                    {
+                        int v = Convert.ToInt32(sr.ReadLine());
+                        string t = sr.ReadLine();
+
+                        treasures.Add(new Treasure(v, t));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Could not find the file.");
+                }
+                return treasures;
             }
 
             //  This method will verify the input of the user. 
@@ -188,6 +210,7 @@ namespace DungeonCrawl
                 party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
 
                 monsters = AddMonsters("Monster.txt");
+                treasures = AddTreasures("Treasure.txt");
 
                 Console.WriteLine("\nLoading...");//Adding dramatic loading screen
                 Thread.Sleep(4000);
