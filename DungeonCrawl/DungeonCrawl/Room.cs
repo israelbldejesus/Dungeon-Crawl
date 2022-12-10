@@ -19,12 +19,14 @@ namespace DungeonCrawl
 
         /// This is how we start the encounter or action for the room.
         
-        public List<Player> partyOfPlayers;
+        public Player partyOfPlayers;
         public List<Monster> monsters;
+        public List<Treasure> treasure;
 
-        public void GenerateRoom()
+        public void GenerateRoom(int playerchance)
         {
-
+            //Test Message
+            Console.WriteLine("Room generation test complete!");
         }
 
         public void Encounter()
@@ -32,10 +34,11 @@ namespace DungeonCrawl
             throw new System.NotImplementedException();
         }
 
-        public Room(List<Player> pl, List<Monster> ml)
+        public Room(Player pl, List<Monster> ml, List<Treasure> t)
         {
             partyOfPlayers = pl;
             monsters = ml;
+            treasure = t;
         }
     }
 }

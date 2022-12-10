@@ -8,21 +8,24 @@ namespace DungeonCrawl
     public class Dice
     {
         /// Player's Dex as it is passed through.
-        public int pDex;
-
-        /// Player's armor.
-        public int pArmor;
-
-        /// Monster's armor.
-        public int mArmor;
+        public int playerDex;
 
         /// Monster's dex.
-        public int mDex;
+        public int monsterDex;
 
         /// This will return chance of hitting.
-        public int CalcChance()
+        public int HitChance(int pDex, int mDex)
         {
-            throw new System.NotImplementedException();
+            playerDex = pDex;
+            monsterDex = mDex;
+            return 0;
+        }
+
+        //This method will generate a number for generating a room. 
+        public int RoomChance(int pDex)
+        {
+            playerDex = pDex;
+            return 0;
         }
     }
 }

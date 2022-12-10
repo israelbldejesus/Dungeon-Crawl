@@ -38,7 +38,7 @@ namespace DungeonCrawl
         static void Main(string[] args)
         {
             //  These are the global variables that will be used in the main program.
-            List<Player> party = new List<Player>(); //  This list will keep track of the players
+            //List<Player> party = new List<Player>(); //  This list will keep track of the players
             List<Monster> monsters = new List<Monster>(); // keeps track of the monsters
             List<Treasure> treasures = new List<Treasure>(); // list to keep track of treasures
 
@@ -120,8 +120,8 @@ namespace DungeonCrawl
                     StreamReader sr = new StreamReader(path1);
                     while (!sr.EndOfStream)
                     {
-                        int v = Convert.ToInt32(sr.ReadLine());
                         string t = sr.ReadLine();
+                        int v = Convert.ToInt32(sr.ReadLine());                        
 
                         treasures.Add(new Treasure(v, t));
                     }
@@ -207,8 +207,8 @@ namespace DungeonCrawl
             bool keeplooping = true;
             do
             {
-                party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
-
+                //party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
+                Player player1 = CreatePlayer(classes);
                 monsters = AddMonsters("Monster.txt");
                 treasures = AddTreasures("Treasure.txt");
 
@@ -231,7 +231,8 @@ namespace DungeonCrawl
                 Console.Clear();
                           
 
-                Room activeRoom = new Room(party, monsters);
+                Room activeRoom = new Room(player1, monsters, treasures);
+                Dice chanceDie = new Dice();
 
                 //  This counter will know what room we are in at the moment. 
                 int roomCounter = 1;
@@ -245,8 +246,8 @@ namespace DungeonCrawl
                     {
                         Console.WriteLine("Which door do wish to go through?"); //    This is meant to ask and determine which door you head through.
                         Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒███████████████████████▒▒▒▒█████████████████████████████████▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒╔╗▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╔═══╗▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔═══╗▒▒▒▒▒█▒▒▒▒▒╔═══╗▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚╗║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║╔═╗║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒║╔═╗║▒▒▄▄▒█▒▄▄▒▒║╔═╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒║║▒▒▒▒▒██▌█▒▒▒▒▒▒█▒▒▒▒██▌▒▒▒╚╝╔╝║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒╚╝╔╝║▒▐██▒█▒██▌▒╚╝╔╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝╚╗▒▒▒▒▀▀▒█▒▒▒▒▒▒█▒▒▒▒▀▀▒▒▒▒╔═╝╔╝▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔╗╚╗║▒▒▒▒▒█▒▒▒▒▒╔╗╚╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚══╝▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║║╚═╗▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒║╚═╝║▒▒▒▒▒█▒▒▒▒▒║╚═╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╚═══╝▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒╚═══╝▒▒▒▒▒█▒▒▒▒▒╚═══╝▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒██████████████████████▒▒▒▒▒█████████████████████████████████▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n");
-                        
-                        activeRoom.GenerateRoom();
+                        int dieRoll = chanceDie.RoomChance(player1.Dexterity);
+                        activeRoom.GenerateRoom(dieRoll);
                     }
                     roomCounter++;
                 }
