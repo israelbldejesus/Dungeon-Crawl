@@ -83,17 +83,17 @@ namespace DungeonCrawl
                     }
 
                 } while (!choice);
-                Console.Clear();
+                Console.Clear(); // clears console
                 return choice;
             }
 
             static List<Monster> AddMonsters(string path) //    This method is for adding the monsters here.
             {
                 List<Monster> monsters = new List<Monster>();
-                if (File.Exists(path))
+                if (File.Exists(path)) // reads file if it exists
                 {
-                    StreamReader sr = new StreamReader(path);
-                    while (!sr.EndOfStream)
+                    StreamReader sr = new StreamReader(path); // path is first external file
+                    while (!sr.EndOfStream) // reads each line in the file
                     {
                         string mt = sr.ReadLine();
                         int l = Convert.ToInt32(sr.ReadLine());
@@ -112,13 +112,13 @@ namespace DungeonCrawl
                 return monsters;
             }
 
-            static List<Treasure> AddTreasures(string path1)    // method for adding treasures
+            static List<Treasure> AddTreasures(string path1)    // method for adding treasures from external file
             {
                 List<Treasure> treasures = new List<Treasure>();
-                if (File.Exists(path1))
+                if (File.Exists(path1)) // reads file if it exists
                 {
-                    StreamReader sr = new StreamReader(path1);
-                    while (!sr.EndOfStream)
+                    StreamReader sr = new StreamReader(path1); // path 1 is second external file
+                    while (!sr.EndOfStream) // read each  line in the file
                     {
                         string t = sr.ReadLine();
                         int v = Convert.ToInt32(sr.ReadLine());                        
@@ -131,6 +131,16 @@ namespace DungeonCrawl
                     Console.WriteLine("Could not find the file.");
                 }
                 return treasures;
+            }
+
+            // this method will write the summary to a file
+            static void WriteToFile()
+            {
+                string path2 = "High Scores.txt";
+                using (StreamWriter sw = new StreamWriter(path2, true)) // true will append data to file, path 2 is third external file
+                {
+                    // code to write lines for summary for high scores file
+                }
             }
 
             //  This method will verify the input of the user. 
