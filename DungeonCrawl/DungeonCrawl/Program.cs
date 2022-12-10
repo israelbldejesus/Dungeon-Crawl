@@ -150,6 +150,7 @@ namespace DungeonCrawl
                 bool loop2 = true;
                 while (loop2)
                 {
+                    // try-catch method for exception handling
                     try
                     {
                         Console.WriteLine("Select a class by entering a number between 1 and 4: ");
@@ -186,7 +187,7 @@ namespace DungeonCrawl
                 string input1 = Console.ReadLine();
                 Console.WriteLine("Select the class you want from the options:");
 
-                for (int i = 0; i < c.Count(); i++)
+                for (int i = 0; i < c.Count(); i++) // counter
                 {
                     Console.WriteLine("\n" + (i + 1) + "\t" + c[i].ToString());
                 }
@@ -219,11 +220,11 @@ namespace DungeonCrawl
             {
                 //party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
                 Player player1 = CreatePlayer(classes);
-                monsters = AddMonsters("Monster.txt");
-                treasures = AddTreasures("Treasure.txt");
+                monsters = AddMonsters("Monster.txt"); // calls external file
+                treasures = AddTreasures("Treasure.txt"); // calls external file
 
-                Console.WriteLine("\nLoading...");//Adding dramatic loading screen
-                Thread.Sleep(4000);
+                Console.WriteLine("\nLoading...");  // Adding dramatic loading screen
+                Thread.Sleep(4000); // time for next console to display
                 Console.WriteLine("Done!");
                 Pause();
                 Console.Clear();
@@ -241,7 +242,7 @@ namespace DungeonCrawl
                 Console.Clear();
                           
 
-                Room activeRoom = new Room(player1, monsters, treasures);
+                Room activeRoom = new Room(player1, monsters, treasures); // calling room for player, monster, and treasure
                 Dice chanceDie = new Dice();
 
                 //  This counter will know what room we are in at the moment. 

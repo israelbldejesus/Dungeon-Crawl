@@ -21,7 +21,7 @@ namespace DungeonCrawl
         
         public Player partyOfPlayers;
         public List<Monster> monsters;
-        public List<Treasure> treasure;
+        public List<Treasure> treasures;
 
         public void GenerateRoom(int playerchance)
         {
@@ -38,7 +38,7 @@ namespace DungeonCrawl
         {
             partyOfPlayers = pl;
             monsters = ml;
-            treasure = t;
+            treasures = t;
         }
     }
 }
