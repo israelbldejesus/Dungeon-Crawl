@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\vivin\\.nuget\\packages\\": {}
+    "C:\\Users\\Jacob Ramos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vivin\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+      "projectUniqueName": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
       "projectName": "DungeonCrawl",
-      "projectPath": "C:\\Users\\vivin\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
-      "packagesPath": "C:\\Users\\vivin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vivin\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
+      "projectPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+      "packagesPath": "C:\\Users\\Jacob Ramos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jacob Ramos\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vivin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jacob Ramos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
