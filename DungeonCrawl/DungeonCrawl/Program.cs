@@ -266,29 +266,30 @@ namespace DungeonCrawl
                         int dieRoll = chanceDie.RoomChance(player1.Dexterity);
                         activeRoom.GenerateRoom(dieRoll);
 
-                        //Displaying room options for selection
+                        //Displaying door options for selection
                         // Prompt the user to enter a choice (1, 2, or 3)
-                        Console.Write("Enter which room you wish to enter (1, 2, or 3): ");
+                        Console.Write("Enter which door do you wish to enter (1, 2, or 3): ");
                         int choice = int.Parse(Console.ReadLine());
 
                         if (choice == 1)
                         {
-                            Console.WriteLine("You chose 1!");
+                            Console.WriteLine("You chose door 1!");
+                         
                         }
                         else if (choice == 2)
                         {
-                            Console.WriteLine("You chose 2!");
+                            Console.WriteLine("You chose door 2!");
                         }
                         else if (choice == 3)
                         {
-                            Console.WriteLine("You chose 3!");
+                            Console.WriteLine("You chose door 3!");
                         }
                         else
                         {
-                            Console.WriteLine("Invalid choice!");
+                            Console.WriteLine("Invalid choice! Select");
                         }
 
-
+                        Console.WriteLine("Roll Dice for Room:");
 
                     }
         roomCounter++;
