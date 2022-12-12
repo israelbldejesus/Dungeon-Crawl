@@ -1,11 +1,24 @@
-﻿Random rand = new Random();
-int yes = 0;
-const int iterations = 10000000;
-for (int i = 0; i < iterations; i++)
+﻿bool keepLoop = true;
+do
 {
-    if (rand.Next(1, 101) <= 25)
+    Random rand = new Random();
+    int yes = 0;
+    const int iterations = 10000000;
+    for (int i = 0; i < iterations; i++)
     {
-        yes++;
+        if (rand.Next(1, 101) <= 25)
+        {
+            yes++;
+        }
     }
-}
-Console.WriteLine((float)yes / iterations);
+    Console.WriteLine((float)yes / iterations);
+    Console.WriteLine("Want to keep looping?(y/n)");
+    if(Console.ReadLine() == "n")
+    {
+        keepLoop = false;
+    }
+    else
+    {
+        keepLoop = true;
+    }
+} while (keepLoop);

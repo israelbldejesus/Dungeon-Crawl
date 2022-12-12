@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {}
+    "C:\\Users\\israe\\source\\repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {
+    "C:\\Users\\israe\\source\\repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+        "projectUniqueName": "C:\\Users\\israe\\source\\repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
         "projectName": "DungeonCrawl",
-        "projectPath": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
+        "projectPath": "C:\\Users\\israe\\source\\repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\DungeonCrawl.csproj",
         "packagesPath": "C:\\Users\\israe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\israe\\Source\\Repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
+        "outputPath": "C:\\Users\\israe\\source\\repos\\Dungeon-Crawl\\DungeonCrawl\\DungeonCrawl\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\israe\\AppData\\Roaming\\NuGet\\NuGet.Config",

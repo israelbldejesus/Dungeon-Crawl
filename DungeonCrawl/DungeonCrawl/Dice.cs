@@ -26,9 +26,10 @@ namespace DungeonCrawl
         {
             playerDex = pDex;
 
-            int output = 
+            int output = pDex * 10;
+            output /= 20;
 
-            return 0;
+            return output;
         }
     }
 }
