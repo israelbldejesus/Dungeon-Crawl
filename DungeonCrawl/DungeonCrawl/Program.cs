@@ -186,6 +186,43 @@ namespace DungeonCrawl
                 return output;
             }
 
+            //  This method will verify the input of the user for door. 
+            int ChooseDoor()
+            {
+                int output = 0;
+                bool loop2 = true;
+                while (loop2)
+                {
+                    // try-catch method for exception handling
+                    try
+                    {
+                        Console.WriteLine("Select a door by entering a number between 1 and 3: ");
+                        output = Convert.ToInt32(Console.ReadLine());
+                        if (output < 1 || output > 3)
+                        {
+                            Console.WriteLine("Enter a valid number between 1 and 3");
+                            Pause();
+
+                            loop2 = true;
+                        }
+                        else
+                        {
+                            loop2 = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Enter a valid number between 1 and 3.");
+                        Pause();
+
+                        loop2 = true;
+                    }
+                }
+
+                return output;
+            }
+
             // These are the methods for the main program. 
             Player CreatePlayer(List<ClassStats> c)
             {
@@ -263,34 +300,45 @@ namespace DungeonCrawl
                     {
                         Console.WriteLine("Which door do wish to go through?"); //    This is meant to ask and determine which door you head through.
                         Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒███████████████████████▒▒▒▒█████████████████████████████████▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒╔╗▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╔═══╗▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔═══╗▒▒▒▒▒█▒▒▒▒▒╔═══╗▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚╗║▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║╔═╗║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒║╔═╗║▒▒▄▄▒█▒▄▄▒▒║╔═╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒║║▒▒▒▒▒██▌█▒▒▒▒▒▒█▒▒▒▒██▌▒▒▒╚╝╔╝║▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒╚╝╔╝║▒▐██▒█▒██▌▒╚╝╔╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╔╝╚╗▒▒▒▒▀▀▒█▒▒▒▒▒▒█▒▒▒▒▀▀▒▒▒▒╔═╝╔╝▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒╔╗╚╗║▒▒▒▒▒█▒▒▒▒▒╔╗╚╗║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒╚══╝▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒║║╚═╗▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒║╚═╝║▒▒▒▒▒█▒▒▒▒▒║╚═╝║▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒╚═══╝▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒╚═══╝▒▒▒▒▒█▒▒▒▒▒╚═══╝▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒\r\n▒▒▒███████████████████▒▒▒▒▒▒▒██████████████████████▒▒▒▒▒█████████████████████████████████▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\r\n");
-                        int dieRoll = chanceDie.RoomChance(player1.Dexterity);
-                        activeRoom.GenerateRoom(dieRoll);
-
+                        
                         //Displaying door options for selection
                         // Prompt the user to enter a choice (1, 2, or 3)
                         Console.Write("Enter which door do you wish to enter (1, 2, or 3): ");
-                        int choice = int.Parse(Console.ReadLine());
+                        int choice = ChooseDoor();                        
 
                         if (choice == 1)
                         {
                             Console.WriteLine("You chose door 1!");
-                         
+                            Pause();
+                            Console.Clear();
                         }
                         else if (choice == 2)
                         {
                             Console.WriteLine("You chose door 2!");
+                            Pause();
+                            Console.Clear();
                         }
                         else if (choice == 3)
                         {
                             Console.WriteLine("You chose door 3!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid choice! Select");
-                        }
+                            Pause();
+                            Console.Clear();
+                        }                        
 
-                        Console.WriteLine("Roll Dice for Room:");
+                        Console.WriteLine("Press any button to Roll Dice for room type:");
+                        int dieRoll = chanceDie.RoomChance(player1.Dexterity);
+                        
+                        Thread.Sleep(2000);
+                        Console.WriteLine(".");
+                        Thread.Sleep(2000);
+                        Console.Write(".");
+                        Thread.Sleep(2000);
+                        Console.Write(".");
+                        Thread.Sleep(2000);
+                        Console.Write(".");
+                        Console.WriteLine("\nYou rolled a {0}!", dieRoll);
 
+                        activeRoom.GenerateRoom(dieRoll);
                     }
         roomCounter++;
                 }

@@ -25,6 +25,9 @@ namespace DungeonCrawl
         public int RoomChance(int pDex)
         {
             playerDex = pDex;
+
+            int output = 
+
             return 0;
         }
     }
