@@ -37,6 +37,7 @@ namespace DungeonCrawl
     {
         static void Main(string[] args)
         {
+            // dialogue for trap room
             void Trigger()
             {
                 Thread.Sleep(2000);
@@ -52,6 +53,7 @@ namespace DungeonCrawl
                 
             }
 
+            // dice generator
             int RollDice()
             {
                 Random rand = new Random();
@@ -83,6 +85,7 @@ namespace DungeonCrawl
             {
                 bool choice = false;
 
+                // exception handling
                 do
                 {
                     string str = Console.ReadLine().Substring(0);
