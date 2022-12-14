@@ -9,25 +9,7 @@ using static System.Formats.Asn1.AsnWriter;
 //  Author:  Israel, Jacob, Vivian
 
 namespace DungeonCrawl
-{
-    public class Trap
-    {
-        public void Trigger()
-        {
-            Thread.Sleep(2000);
-            Console.WriteLine("You enter the room but something feels off...");
-            Thread.Sleep(2000);
-            Console.WriteLine("Sudenly a trap door opens below you and you fall to the ground.");
-            Thread.Sleep(2000);
-            // kill the player
-            Console.WriteLine("You have triggered a trap and died!");
-            Thread.Sleep(2000);
-
-            Console.WriteLine("Do you wish to play again");
-        }
-    }
-        
-
+{ 
     public struct ClassStats  //  Structure defining the name and Class type sepcifications.
     {
         public string ClName;
@@ -55,8 +37,21 @@ namespace DungeonCrawl
     {
         static void Main(string[] args)
         {
-            Trap trap = new Trap();
-            
+            void Trigger()
+            {
+                Thread.Sleep(2000);
+                Console.WriteLine("You enter the room but something feels off...");
+                Thread.Sleep(2000);
+                Console.WriteLine("Sudenly a trap door opens below you and you fall to the ground.");
+                Thread.Sleep(2000);
+                // kill the player
+                Console.WriteLine("You have triggered a trap and died!");
+                Thread.Sleep(2000);
+                Console.WriteLine("You have Lost...");
+                Console.WriteLine("Do you wish to play again?");
+                
+            }
+
             int RollDice()
             {
                 Random rand = new Random();
@@ -360,7 +355,7 @@ namespace DungeonCrawl
                     
                         if (dieRoll == 1 || dieRoll== 2)
                         {
-                            //sends you to trap room
+                            Trigger();
                         }
                         else if (dieRoll <= 3 || dieRoll <= 10 )
                         {
