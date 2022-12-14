@@ -10,6 +10,24 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace DungeonCrawl
 {
+    public class Trap
+    {
+        public void Trigger()
+        {
+            Thread.Sleep(2000);
+            Console.WriteLine("You enter the room but something feels off...");
+            Thread.Sleep(2000);
+            Console.WriteLine("Sudenly a trap door opens below you and you fall to the ground.");
+            Thread.Sleep(2000);
+            // kill the player
+            Console.WriteLine("You have triggered a trap and died!");
+            Thread.Sleep(2000);
+
+            Console.WriteLine("Do you wish to play again");
+        }
+    }
+        
+
     public struct ClassStats  //  Structure defining the name and Class type sepcifications.
     {
         public string ClName;
@@ -37,6 +55,8 @@ namespace DungeonCrawl
     {
         static void Main(string[] args)
         {
+            Trap trap = new Trap();
+            
             int RollDice()
             {
                 Random rand = new Random();
@@ -57,7 +77,7 @@ namespace DungeonCrawl
 
             int modelCount = classes.Count - 1;  //  The number of Class Types available
 
-
+            
             void Pause() //  This method will add a pause.
             {
                 Console.WriteLine("Press any button to continue.");
@@ -337,7 +357,23 @@ namespace DungeonCrawl
                         Thread.Sleep(2000);
                         Console.Write(".");
                         Console.WriteLine("\nYou rolled a {0}!", dieRoll);
-
+                    
+                        if (dieRoll == 1 || dieRoll== 2)
+                        {
+                            //sends you to trap room
+                        }
+                        else if (dieRoll <= 3 || dieRoll <= 10 )
+                        {
+                            //activeRoom.GenerateRoom(MediumMonster);
+                        }
+                        else if (dieRoll <= 11 || dieRoll <=16)
+                        {
+                            //activeRoom.GenerateRoom(StrongMonster);
+                        }
+                        else if (dieRoll <= 17 || dieRoll <= 20 )
+                        {
+                            //activate.room(Treasure)
+                        }
                         activeRoom.GenerateRoom(dieRoll);
                     }
         roomCounter++;

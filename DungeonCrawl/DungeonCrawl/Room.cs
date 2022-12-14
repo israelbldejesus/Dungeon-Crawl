@@ -14,7 +14,8 @@ namespace DungeonCrawl
         public int numMonsters;
 
         /// Treasures that could be in the room.
-        public string treasureItem;
+        public int treasureItem;
+
 
 
         /// This is how we start the encounter or action for the room.
@@ -22,6 +23,8 @@ namespace DungeonCrawl
         public Player partyOfPlayers;
         public List<Monster> monsters;
         public List<Treasure> treasures;
+
+      
 
         public void GenerateRoom(int playerchance)
         {

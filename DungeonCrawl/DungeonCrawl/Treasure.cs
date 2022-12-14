@@ -15,6 +15,8 @@ namespace DungeonCrawl
             Value = v;
             typeOfTreasure = t;
         }
+        
+        
 
         /// This is the value of the treasure
         public int Value;
