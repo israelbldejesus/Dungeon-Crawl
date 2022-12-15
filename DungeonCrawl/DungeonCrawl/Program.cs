@@ -213,12 +213,28 @@ namespace DungeonCrawl
             }
 
             // this method will write the summary to a file
-            static void WriteToFile(Player p, List<Monster> m, List<Treasure> t)//Score(treasure), name of user, rooms cleared, monsters killed
+            static void PrintReceipt(Player p, List<Monster> m, List<Treasure> t, int c)//Score(treasure), name of user, rooms cleared, monsters killed
             {
                 string path2 = "Game Summary.txt";
                 using (StreamWriter sw = new StreamWriter(path2, true)) // true will append data to file, path 2 is third external file
                 {
-                    // code to write lines for summary for high scores file
+                    int highScore = 0;
+                    sw.WriteLine("Player Name: " + p.Name);
+                    sw.WriteLine("Player Class: " + p.ClassType);
+                    foreach(Monster m2 in m)
+                    {
+                        sw.WriteLine("Monster Name: " + m2.MonsterType);
+                        highScore += 10;
+                    }
+                    foreach(Treasure t2 in t)
+                    {
+                        sw.WriteLine("Treasure Name: " + t2.typeOfTreasure);
+                        highScore += t2.Value;
+                    }
+                    sw.WriteLine("Rooms: " + c);
+                    highScore += (c * 10);
+                    sw.WriteLine(highScore);
+                    sw.Close();
                 }
             }
 
@@ -308,11 +324,11 @@ namespace DungeonCrawl
                     Console.WriteLine("\n" + (i + 1) + "\t" + c[i].ToString());
                 }
 
-                input2 = ChooseClass(c);
+                int input2 = ChooseClass(c);
 
+                ClassStats output = classes[input2];
 
-
-                Player player = new Player(input2, input1);
+                Player player = new Player(output, input1);
 
                 Console.WriteLine("Player created!");
                 return player;
@@ -340,7 +356,7 @@ namespace DungeonCrawl
                 monsters = AddMonsters("Monster.txt"); // calls external file
                 treasures = AddTreasures("Treasure.txt"); // calls external file
                 List<Treasure> treasurePrintList = new List<Treasure>();
-                List<Treasure> MonsterPrintList = new List<Treasure>();
+                List<Monster> MonsterPrintList = new List<Monster>();
 
                 Console.WriteLine("\nLoading...");  // Adding dramatic loading screen
                 Thread.Sleep(4000); // time for next console to display
@@ -423,12 +439,12 @@ namespace DungeonCrawl
                         }
                         else if (dieRoll >= 3 || dieRoll <= 10 )
                         {
-                            MonsterPrintList.Add();
+                            //MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(MediumMonster);
                         }
                         else if (dieRoll >= 11 || dieRoll <=16)
                         {
-                            MonsterPrintList.Add();
+                            //MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(StrongMonster);
                         }
                         else if (dieRoll >= 17 || dieRoll <= 20 )
@@ -441,7 +457,7 @@ namespace DungeonCrawl
                 Console.WriteLine("Do you wish to play again?(Y/N)");
                 keeplooping = VerifyChoiceYN();
                 Console.Clear();
-                WriteToFile(player1, MonsterPrintList, treasurePrintList);
+                PrintReceipt(player1, MonsterPrintList, treasurePrintList, roomCounter);
             } while (keeplooping);            
         }
     }
