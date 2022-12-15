@@ -53,36 +53,6 @@ namespace DungeonCrawl
                 
             }
 
-            void death() //Creates option to play again or not to  
-
-            {
-
-                do
-
-                {
-                    //print score receipt here 
-                    Console.WriteLine("Do you wish to play again (Y or N)?");
-
-                    string tryagain = Console.ReadLine();
-
-                    if (tryagain == "Y" || tryagain == "y")
-                    {
-
-                    }
-                    else if (tryagain == "N" || tryagain == "n")
-                    {
-                        Console.WriteLine("Thanks for playing!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter Y for Yes or N for No.");
-                        Pause();
-                    }
-
-                } while (true);
-
-            }
-
             // dice generator
             int RollDice()
             {
@@ -163,9 +133,7 @@ namespace DungeonCrawl
                 {
                     Console.WriteLine("You found Nothing");
                     return treasures[0];
-                }
-                Console.Clear();
-                Pause();
+                }                
             }
 
             bool VerifyChoiceYN() // This method will ask for yes or no and verify for correct input. 
@@ -245,7 +213,7 @@ namespace DungeonCrawl
             }
 
             // this method will write the summary to a file
-            static void WriteToFile()//Score(treasure), name of user, rooms cleared, monsters killed
+            static void WriteToFile(Player p, List<Monster> m, List<Treasure> t)//Score(treasure), name of user, rooms cleared, monsters killed
             {
                 string path2 = "Game Summary.txt";
                 using (StreamWriter sw = new StreamWriter(path2, true)) // true will append data to file, path 2 is third external file
@@ -450,6 +418,8 @@ namespace DungeonCrawl
                         {
                             Trigger();
                             roomCounter = 10;
+                            Console.Clear();
+                            Pause();
                         }
                         else if (dieRoll >= 3 || dieRoll <= 10 )
                         {
@@ -470,7 +440,7 @@ namespace DungeonCrawl
                 Console.WriteLine("Do you wish to play again?(Y/N)");
                 keeplooping = VerifyChoiceYN();
                 Console.Clear();
-            } while (keeplooping);
+            } while (keeplooping);            
         }
     }
 }
