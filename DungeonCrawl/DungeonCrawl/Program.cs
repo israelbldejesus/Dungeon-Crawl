@@ -53,6 +53,43 @@ namespace DungeonCrawl
                 
             }
 
+            void death() //Creates option to play again or not to  
+
+            {
+
+                do
+
+                {
+                    //print score receipt here 
+
+                    Console.WriteLine("Do you wish to play again (Y or N)?");
+
+                    string tryagain = Console.ReadLine();
+
+                    if (tryagain == "Y" || tryagain == "y")
+
+                    {
+
+                    }
+
+                    if (tryagain == "N" || tryagain == "n")
+
+                    {
+                        Console.WriteLine("Thanks for playing!");
+                    }
+
+                    else
+
+                    {
+                        Console.WriteLine("Please enter Y for Yes or N for No.");
+
+                        Pause();
+                    }
+
+                } while (true);
+
+            }
+
             // dice generator
             int RollDice()
             {
@@ -79,6 +116,100 @@ namespace DungeonCrawl
             {
                 Console.WriteLine("Press any button to continue.");
                 Console.ReadKey();
+            }
+
+            Random random = new Random(); //Builds a dice to rolled for treasure 
+
+            int diRoll = random.Next(1, 8);
+
+            void tRoom() //Builds a treasure room 
+
+            {
+
+                Thread.Sleep(2000);
+
+                Console.WriteLine("You enter the room and notice a something shinning in the back of this cold room");
+
+                Thread.Sleep(2000);
+
+                Console.WriteLine("As you walk closer to it, you notice that it is a gold chest.");
+
+                Thread.Sleep(2000);
+
+                Console.WriteLine("You decide to open it to find treasure!");
+
+                Thread.Sleep(2000);
+
+                Console.WriteLine("Press any button to Roll Dice for treasure type:");
+
+
+
+                Thread.Sleep(2000);
+
+                Console.WriteLine(".");
+
+                Thread.Sleep(2000);
+
+                Console.Write(".");
+
+                Thread.Sleep(2000);
+
+                Console.Write(".");
+
+                Thread.Sleep(2000);
+
+                Console.Write(".");
+
+                Console.WriteLine("\nYou rolled a {0}!", diRoll);
+
+
+
+                if (diRoll <= 2)
+
+                {
+
+                    Console.WriteLine("You found a Ruby!");
+
+                    treasures.Add(new Treasure(10, "Ruby"));
+
+                }
+
+                if (diRoll == 3 || diRoll == 4)
+
+                {
+
+                    Console.WriteLine("You found an Emerald");
+
+                    treasures.Add(new Treasure(20, "Emerald"));
+
+                }
+
+                if (diRoll == 5 || diRoll == 6)
+
+                {
+
+                    Console.WriteLine("You found a Saphire!");
+
+                    treasures.Add(new Treasure(30, "Saphire"));
+
+                }
+
+                if (diRoll == 7)
+
+                {
+
+                    Console.WriteLine("You found the Rare Dimond of MIS411");
+
+                    treasures.Add(new Treasure(100, "Dimond"));
+
+                }
+
+
+
+                Console.Clear();
+
+                Pause();
+
             }
 
             bool VerifyChoiceYN() // This method will ask for yes or no and verify for correct input. 
@@ -370,7 +501,7 @@ namespace DungeonCrawl
                         }
                         else if (dieRoll <= 17 || dieRoll <= 20 )
                         {
-                            //activate.room(Treasure)
+                            tRoom();
                         }
                         activeRoom.GenerateRoom(dieRoll);
                     }
