@@ -21,7 +21,7 @@ namespace DungeonCrawl
                 public int Attack = 10;
 
                 /// This will modify the base stats of the player.
-                public int ClassType;
+                public ClassStats ClassType;
 
                 /// This is the name of the playable character.
                 public string Name;
@@ -34,10 +34,11 @@ namespace DungeonCrawl
 
                 // Constructor for player class.
 
-                public Player(int s, string n)
+                public Player(ClassStats s, string n)
                 {
                     Name = n;
                     ClassType = s;
+                    
                 }
 
                 public Score Score

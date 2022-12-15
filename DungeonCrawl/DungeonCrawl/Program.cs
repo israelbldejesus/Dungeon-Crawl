@@ -308,7 +308,7 @@ namespace DungeonCrawl
                     Console.WriteLine("\n" + (i + 1) + "\t" + c[i].ToString());
                 }
 
-                int input2 = ChooseClass(c);
+                input2 = ChooseClass(c);
 
 
 
@@ -336,6 +336,7 @@ namespace DungeonCrawl
             {
                 //party.Add(CreatePlayer(classes)); //    This will call a method to create the player. 
                 Player player1 = CreatePlayer(classes);
+                
                 monsters = AddMonsters("Monster.txt"); // calls external file
                 treasures = AddTreasures("Treasure.txt"); // calls external file
                 List<Treasure> treasurePrintList = new List<Treasure>();
@@ -361,7 +362,6 @@ namespace DungeonCrawl
                           
 
                 Room activeRoom = new Room(player1, monsters, treasures); // calling room for player, monster, and treasure
-                Dice chanceDie = new Dice();
 
                 //  This counter will know what room we are in at the moment. 
                 int roomCounter = 1;
@@ -423,23 +423,25 @@ namespace DungeonCrawl
                         }
                         else if (dieRoll >= 3 || dieRoll <= 10 )
                         {
+                            MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(MediumMonster);
                         }
                         else if (dieRoll >= 11 || dieRoll <=16)
                         {
+                            MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(StrongMonster);
                         }
                         else if (dieRoll >= 17 || dieRoll <= 20 )
                         {
                             treasurePrintList.Add(tRoom());//adding the treasure to out printing list.                             
-                        }
-                        activeRoom.GenerateRoom(dieRoll);
+                        }                        
                     }
         roomCounter++;
                 }
                 Console.WriteLine("Do you wish to play again?(Y/N)");
                 keeplooping = VerifyChoiceYN();
                 Console.Clear();
+                WriteToFile(player1, MonsterPrintList, treasurePrintList);
             } while (keeplooping);            
         }
     }
