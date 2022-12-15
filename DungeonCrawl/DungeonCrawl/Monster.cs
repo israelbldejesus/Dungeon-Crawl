@@ -11,7 +11,7 @@ namespace DungeonCrawl
         // Constructor for monster. 
         public Monster(string mt, int l, int a, int ar, int d, int xp)
         {
-            MonsterType = mt;
+            MonsterName = mt;
             Level = l;
             Attack = a;
             Armor = ar;
@@ -38,7 +38,7 @@ namespace DungeonCrawl
         public bool Boss;
 
         /// This list will contain all the types of monsters.
-        public string MonsterType;
+        public string MonsterName;
 
         /// This is the experience the monster will drop when defeated.
         public int XP;

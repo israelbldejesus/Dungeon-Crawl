@@ -82,14 +82,27 @@ namespace DungeonCrawl
                 Console.ReadKey();
             }
 
-            Random random = new Random(); //Builds a dice to rolled for treasure 
+            void RollMethod(string s)
+            {
+                Console.WriteLine("Press any button to Roll Dice for {0} type:", s);
 
-            int diRoll = random.Next(1, 8);
+                Thread.Sleep(2000);
+                Console.Write(".");
+                Thread.Sleep(2000);
+                Console.Write(".");
+                Thread.Sleep(2000);
+                Console.Write(".");
+                Thread.Sleep(2000);
+                Console.Write(".");
+            }
+
+            Random random = new Random(); //Builds a dice to rolled for treasure 
+            
 
             Treasure tRoom() //Builds a treasure room 
 
             {
-
+                int diRoll = random.Next(1, 8);
                 Thread.Sleep(2000);
                 Console.WriteLine("You enter the room and notice a something shinning in the back of this cold room");
                 Thread.Sleep(2000);
@@ -97,16 +110,7 @@ namespace DungeonCrawl
                 Thread.Sleep(2000);
                 Console.WriteLine("You decide to open it to find treasure!");
                 Thread.Sleep(2000);
-                Console.WriteLine("Press any button to Roll Dice for treasure type:");
-
-                Thread.Sleep(2000);
-                Console.WriteLine(".");
-                Thread.Sleep(2000);
-                Console.Write(".");
-                Thread.Sleep(2000);
-                Console.Write(".");
-                Thread.Sleep(2000);
-                Console.Write(".");
+                RollMethod("treasure");
 
                 Console.WriteLine("\nYou rolled a {0}!", diRoll);
 
@@ -141,6 +145,36 @@ namespace DungeonCrawl
 
                     return treasures[0];
                 }
+            }
+
+            Monster MonsterRoll(List<Monster> m) //Builds a treasure room 
+
+            {
+                int diRoll = random.Next(0, 1);
+                Thread.Sleep(2000);
+                Console.WriteLine("mmm");
+                Thread.Sleep(2000);
+                Console.WriteLine("mmm");
+                Thread.Sleep(2000);
+                Console.WriteLine("mmmm");
+                Thread.Sleep(2000);
+                RollMethod("Monster");
+
+                Console.WriteLine("\nYou rolled a {0}!", diRoll);
+
+                if (diRoll == 0)
+                {
+                    Console.WriteLine("You found a Ghost Monster!");
+                    Console.WriteLine("▒▒▒▒▒▐▀▀▀█▄▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒█▀─────█▒▒▒▒▒▒▒▒\r\n▒▒▒█────▄─▄─▌▒▒▒▒▒▒▒\r\n▒▒▒▌───██─█▌▌▒▒▒▒▒▒▒\r\n▒▒▒▌───█▌──▌▌▒▒▒▒▒▒▒\r\n▒▒▒▌────────▌▒▒▒▒▒▒▒\r\n▒▒█─────────▐▒▒▒▒▒▒▒\r\n▒▐▌─▐───────▐▄▄▒▒▒▒▒\r\n▒▐▌─▐────────▄▀▀█▒▒▒\r\n▒█──▀▄──▄█▄▀▀▒▒▒▌▀▄▒\r\n▐▌────██▀█░█▄▒▄▄█▀▀▌\r\n▐▌──▌▐───▐░░▐▀░░░░░▌\r\n▐▌──▌────▐░░▐░░░░░░▌\r\n▐───▌────▐░░▐░░░░░░▌\r\n▐───█────▐░░▐░░░░░░▌\r\n▐───█────▐░░▐░░░░░░▌\r\n▐───█─────▀█▐▄▄▄█▀▀▒\r\n▀▄▄─▐───────▄█▒▒▒▒▒▒\r\n▒▒▒▀█───█▄▀▀▀▒▒▒▒▒▒▒\r\n▒▒▒▒▒▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒\r\n");
+                    return m[diRoll];
+                }
+                else if (diRoll == 1)
+                {
+                    Console.WriteLine("You found an Spider Monster!");
+                    Console.WriteLine("░░░░░░░░░░░║\r\n░░▄█▀▄░░░░░║░░░░░░▄▀▄▄\r\n░░░░░░▀▄░░░║░░░░▄▀\r\n░▄▄▄░░░░█▄▄▄▄▄▄█░░░░▄▄▄\r\n▀░░░▀█░█▀░░▐▌░░▀█░█▀░░░▀\r\n░░░░░░██░░▀▐▌▀░░██\r\n░▄█▀▀▀████████████▀▀▀█\r\n█░░░░░░██████████░░░░░▀▄\r\n█▄░░░█▀░░▀▀▀▀▀▀░░▀█░░░▄█\r\n░▀█░░░█░░░░░░░░░░█░░░█▀");
+                    return m[diRoll];
+                }
+                return m[2];
             }
 
             bool VerifyChoiceYN() // This method will ask for yes or no and verify for correct input. 
@@ -230,7 +264,7 @@ namespace DungeonCrawl
                     sw.WriteLine("Player Class: " + p.ClassType);
                     foreach(Monster m2 in m)
                     {
-                        sw.WriteLine("Monster Name: " + m2.MonsterType);
+                        sw.WriteLine("Monster Name: " + m2.MonsterName);
                         highScore += 10;
                     }
                     foreach(Treasure t2 in t)
@@ -281,9 +315,47 @@ namespace DungeonCrawl
 
                 return output;
             }
+                        
+            int CalculateDex(Player p) //determines if likely hood is of something is closer or not 
+            {
+                int playerRoll = random.Next(1, 8);
+                // If the character has a high dexterity, the random number is more likely to be closer to 1 
+                if (p.Dexterity > 6)
+                {
+                    playerRoll = playerRoll / 2;
+                }
+                // If the character has a moderate dexterity, the random number is slightly more likely to be closer to 1 
 
-            //  This method will verify the input of the user for door. 
-            int ChooseDoor()
+                else if (p.Dexterity <= 6 && p.Dexterity >= 4)
+                {
+                    playerRoll = (int)(playerRoll / 1.5);
+                }
+                //If the player has a low dexterity, the random number won't be closer to 1 
+                else if (p.Dexterity <= 3)
+                {
+                    playerRoll = playerRoll * 1;
+                }
+
+                return playerRoll;
+            }
+            
+            void Order(Player p)
+            {
+                int playerRoll = CalculateDex(p);
+                int enemyRoll = random.Next(2, 8);                
+                if (playerRoll < enemyRoll)
+                {
+                    Console.WriteLine("{0} goes first with a roll of {1}!", p.Name, playerRoll);
+                }
+                else if (enemyRoll < playerRoll)
+                {
+                    Console.WriteLine("{0} goes first with a roll of {1}!", enemyRoll);
+                }
+                
+            }
+
+                //  This method will verify the input of the user for door. 
+                int ChooseDoor()
             {
                 int output = 0;
                 bool loop2 = true;
@@ -392,8 +464,10 @@ namespace DungeonCrawl
                 {
                     if (roomCounter == 9)//  When you get to the 9th room you will enter a boss room
                     {
-                        //  Boss room
-                        Console.WriteLine("Encounter with boss mosnter.");
+                        Console.WriteLine("You found an Giant Monster!");
+                        Console.WriteLine("────────▄▄▄▄▄▄▄▄▄\r\n────────▌▐░▀░▀░▀▐\r\n────────▌░▌░░░░░▐\r\n────────▌░░░░░░░▐\r\n────────▄▄▄▄▄▄▄▄▄\r\n──▄▀▀▀▀▀▌▄█▄░▄█▄▐▀▀▀▀▀▄\r\n─█▒▒▒▒▒▐░░░░▄░░░░▌▒▒▒▒▒█\r\n▐▒▒▒▒▒▒▒▌░░░░░░░▐▒▒▒▒▒▒▒▌\r\n▐▒▒▒▒▒▒▒█░▀▀▀▀▀░█▒▒▒▒▒▒▒▌\r\n▐▒▒▒▒▒▒▒▒█▄▄▄▄▄█▒▒▒▒▒▒▒▒▌\r\n▐▒▒▒▒▐▒▒▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▒▌\r\n▐▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▌\r\n▐▒▒▒▒▒▐▒▒▒▒▒▒▒▒▒▒▒▌▒▒▒▒▒▌\r\n▐▒▒▒▒▒▒▌▒▒▒▒▒▒▒▒▒▐▒▒▒▒▒▒▌\r\n▐▒▒▒▒▒▒▌▄▄▄▄▄▄▄▄▄▐▒▒▒▒▒▒▌\r\n▐▄▄▄▄▄▄▌▌███████▌▐▄▄▄▄▄▄▌\r\n─█▀▀▀▀█─▌███▌███▌─█▀▀▀▀█\r\n─▐░░░░▌─▌███▌███▌─▐░░░░▌\r\n──▀▀▀▀──▌███▌███▌──▀▀▀▀\r\n────────▌███▌███▌\r\n────────▌███▌███▌\r\n──────▐▀▀▀██▌█▀▀▀▌\r\n▒▒▒▒▒▒▐▄▄▄▄▄▄▄▄▄▄▌▒▒▒▒▒▒▒\r\n");
+                        Pause();
+                        Console.Clear();
                     }
                     else
                     {
@@ -422,45 +496,41 @@ namespace DungeonCrawl
                             Console.WriteLine("You chose door 3!");
                             Pause();
                             Console.Clear();
-                        }                        
+                        }
 
-                        Console.WriteLine("Press any button to Roll Dice for room type:");
-                        Console.ReadKey();
-                        int dieRoll = RollDice();
-                        
-
-                        Thread.Sleep(2000);
-                        Console.Write(".");
-                        Thread.Sleep(2000);
-                        Console.Write(".");
-                        Thread.Sleep(2000);
-                        Console.Write(".");
-                        Thread.Sleep(2000);
-                        Console.Write(".");
+                        RollMethod("door");
+                        int dieRoll = RollDice();                 
                         Console.WriteLine("\nYou rolled a {0}!", dieRoll);
                         Pause();
                         Console.Clear();
                     
-                        if (dieRoll == 1 || dieRoll >= 2)
+                        if (dieRoll >= 1 && dieRoll <= 3)
                         {
                             Trigger();
                             roomCounter = 10;
                             Pause();
                             Console.Clear();
                         }
-                        else if (dieRoll >= 3 && dieRoll <= 10 )
+                        else if (dieRoll >= 4 && dieRoll <= 10)
                         {
                             Console.WriteLine("Encounter with small mosnter.");
                             //MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(MediumMonster);
+                            Console.WriteLine("You found a Ghost Monster!");
+                            Console.WriteLine("▒▒▒▒▒▐▀▀▀█▄▒▒▒▒▒▒▒▒▒\r\n▒▒▒▒█▀─────█▒▒▒▒▒▒▒▒\r\n▒▒▒█────▄─▄─▌▒▒▒▒▒▒▒\r\n▒▒▒▌───██─█▌▌▒▒▒▒▒▒▒\r\n▒▒▒▌───█▌──▌▌▒▒▒▒▒▒▒\r\n▒▒▒▌────────▌▒▒▒▒▒▒▒\r\n▒▒█─────────▐▒▒▒▒▒▒▒\r\n▒▐▌─▐───────▐▄▄▒▒▒▒▒\r\n▒▐▌─▐────────▄▀▀█▒▒▒\r\n▒█──▀▄──▄█▄▀▀▒▒▒▌▀▄▒\r\n▐▌────██▀█░█▄▒▄▄█▀▀▌\r\n▐▌──▌▐───▐░░▐▀░░░░░▌\r\n▐▌──▌────▐░░▐░░░░░░▌\r\n▐───▌────▐░░▐░░░░░░▌\r\n▐───█────▐░░▐░░░░░░▌\r\n▐───█────▐░░▐░░░░░░▌\r\n▐───█─────▀█▐▄▄▄█▀▀▒\r\n▀▄▄─▐───────▄█▒▒▒▒▒▒\r\n▒▒▒▀█───█▄▀▀▀▒▒▒▒▒▒▒\r\n▒▒▒▒▒▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒\r\n");
+                            //Monster chosenMonster = MonsterRoll(monsters);
+
+                            Order(player1);
                             Pause();
                             Console.Clear();
                         }
-                        else if (dieRoll >= 11 && dieRoll <=16)
+                        else if (dieRoll >= 11 && dieRoll <= 16)
                         {
                             Console.WriteLine("Encounter with big mosnter.");
                             //MonsterPrintList.Add();
                             //activeRoom.GenerateRoom(StrongMonster);
+                            Console.WriteLine("You found an Spider Monster!");
+                            Console.WriteLine("░░░░░░░░░░░║\r\n░░▄█▀▄░░░░░║░░░░░░▄▀▄▄\r\n░░░░░░▀▄░░░║░░░░▄▀\r\n░▄▄▄░░░░█▄▄▄▄▄▄█░░░░▄▄▄\r\n▀░░░▀█░█▀░░▐▌░░▀█░█▀░░░▀\r\n░░░░░░██░░▀▐▌▀░░██\r\n░▄█▀▀▀████████████▀▀▀█\r\n█░░░░░░██████████░░░░░▀▄\r\n█▄░░░█▀░░▀▀▀▀▀▀░░▀█░░░▄█\r\n░▀█░░░█░░░░░░░░░░█░░░█▀");
                             Pause();
                             Console.Clear();
                         }

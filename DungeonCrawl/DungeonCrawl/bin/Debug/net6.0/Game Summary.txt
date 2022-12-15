@@ -14,3 +14,11 @@ Stats:	Health Points:  100
 		Armour Points: 9
 Rooms: 11
 110
+Player Name: Israel
+Player Class: Class Type:  Tank
+Stats:	Health Points:  100
+		Attack Power:  4
+		Dexterity: 2
+		Armour Points: 9
+Rooms: 11
+110
