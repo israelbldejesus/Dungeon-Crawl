@@ -1,12 +1,10 @@
-Gold
-25
-Sword
+Nothing
+0
+Ruby
 10
-Bow
-12
-Longsword
-8
-Shield
-15
-Armor
-18
+Emerald
+20
+Saphire
+30
+Dimond of MIS411
+100

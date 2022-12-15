@@ -48,8 +48,8 @@ namespace DungeonCrawl
                 // kill the player
                 Console.WriteLine("You have triggered a trap and died!");
                 Thread.Sleep(2000);
-                Console.WriteLine("You have Lost...");
-                Console.WriteLine("Do you wish to play again?");
+                Console.WriteLine("███████████████████████████\r\n███████▀▀▀░░░░░░░▀▀▀███████\r\n████▀░░░░░░░░░░░░░░░░░▀████\r\n███│░░░░░░░░░░░░░░░░░░░│███\r\n██▌│░░░░░░░░░░░░░░░░░░░│▐██\r\n██░└┐░░░░░░░░░░░░░░░░░┌┘░██\r\n██░░└┐░░░░░░░░░░░░░░░┌┘░░██\r\n██░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░██\r\n██▌░│██████▌░░░▐██████│░▐██\r\n███░│▐███▀▀░░▄░░▀▀███▌│░███\r\n██▀─┘░░░░░░░▐█▌░░░░░░░└─▀██\r\n██▄░░░▄▄▄▓░░▀█▀░░▓▄▄▄░░░▄██\r\n████▄─┘██▌░░░░░░░▐██└─▄████\r\n█████░░▐█─┬┬┬┬┬┬┬─█▌░░█████\r\n████▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐████\r\n█████▄░░░└┴┴┴┴┴┴┴┘░░░▄█████\r\n███████▄░░░░░░░░░░░▄███████\r\n██████████▄▄▄▄▄▄▄██████████\r\n███████████████████████████");
+                Console.WriteLine("You have Lost..."); 
                 
             }
 
@@ -61,28 +61,21 @@ namespace DungeonCrawl
 
                 {
                     //print score receipt here 
-
                     Console.WriteLine("Do you wish to play again (Y or N)?");
 
                     string tryagain = Console.ReadLine();
 
                     if (tryagain == "Y" || tryagain == "y")
-
                     {
 
                     }
-
-                    if (tryagain == "N" || tryagain == "n")
-
+                    else if (tryagain == "N" || tryagain == "n")
                     {
                         Console.WriteLine("Thanks for playing!");
                     }
-
                     else
-
                     {
                         Console.WriteLine("Please enter Y for Yes or N for No.");
-
                         Pause();
                     }
 
@@ -122,94 +115,57 @@ namespace DungeonCrawl
 
             int diRoll = random.Next(1, 8);
 
-            void tRoom() //Builds a treasure room 
+            Treasure tRoom() //Builds a treasure room 
 
             {
 
                 Thread.Sleep(2000);
-
                 Console.WriteLine("You enter the room and notice a something shinning in the back of this cold room");
-
                 Thread.Sleep(2000);
-
                 Console.WriteLine("As you walk closer to it, you notice that it is a gold chest.");
-
                 Thread.Sleep(2000);
-
                 Console.WriteLine("You decide to open it to find treasure!");
-
                 Thread.Sleep(2000);
-
                 Console.WriteLine("Press any button to Roll Dice for treasure type:");
 
-
-
                 Thread.Sleep(2000);
-
                 Console.WriteLine(".");
-
                 Thread.Sleep(2000);
-
                 Console.Write(".");
-
                 Thread.Sleep(2000);
-
                 Console.Write(".");
-
                 Thread.Sleep(2000);
-
                 Console.Write(".");
 
                 Console.WriteLine("\nYou rolled a {0}!", diRoll);
 
-
-
-                if (diRoll <= 2)
-
+                if (diRoll == 2)
                 {
-
                     Console.WriteLine("You found a Ruby!");
-
-                    treasures.Add(new Treasure(10, "Ruby"));
-
+                    return treasures[1];
                 }
-
-                if (diRoll == 3 || diRoll == 4)
-
+                else if (diRoll == 3 || diRoll == 4)
                 {
-
                     Console.WriteLine("You found an Emerald");
-
-                    treasures.Add(new Treasure(20, "Emerald"));
-
+                    return treasures[2];
                 }
-
-                if (diRoll == 5 || diRoll == 6)
-
+                else if (diRoll == 5 || diRoll == 6)
                 {
-
                     Console.WriteLine("You found a Saphire!");
-
-                    treasures.Add(new Treasure(30, "Saphire"));
-
+                    return treasures[3];
                 }
-
-                if (diRoll == 7)
-
+                else if (diRoll == 7)
                 {
-
                     Console.WriteLine("You found the Rare Dimond of MIS411");
-
-                    treasures.Add(new Treasure(100, "Dimond"));
-
+                    return treasures[4];
                 }
-
-
-
+                else
+                {
+                    Console.WriteLine("You found Nothing");
+                    return treasures[0];
+                }
                 Console.Clear();
-
                 Pause();
-
             }
 
             bool VerifyChoiceYN() // This method will ask for yes or no and verify for correct input. 
@@ -289,9 +245,9 @@ namespace DungeonCrawl
             }
 
             // this method will write the summary to a file
-            static void WriteToFile()
+            static void WriteToFile()//Score(treasure), name of user, rooms cleared, monsters killed
             {
-                string path2 = "High Scores.txt";
+                string path2 = "Game Summary.txt";
                 using (StreamWriter sw = new StreamWriter(path2, true)) // true will append data to file, path 2 is third external file
                 {
                     // code to write lines for summary for high scores file
@@ -414,6 +370,8 @@ namespace DungeonCrawl
                 Player player1 = CreatePlayer(classes);
                 monsters = AddMonsters("Monster.txt"); // calls external file
                 treasures = AddTreasures("Treasure.txt"); // calls external file
+                List<Treasure> treasurePrintList = new List<Treasure>();
+                List<Treasure> MonsterPrintList = new List<Treasure>();
 
                 Console.WriteLine("\nLoading...");  // Adding dramatic loading screen
                 Thread.Sleep(4000); // time for next console to display
@@ -475,7 +433,7 @@ namespace DungeonCrawl
                         }                        
 
                         Console.WriteLine("Press any button to Roll Dice for room type:");
-                        int dieRoll = chanceDie.RoomChance(player1.Dexterity);
+                        int dieRoll = RollDice();
                         
                         Thread.Sleep(2000);
                         Console.WriteLine(".");
@@ -486,27 +444,32 @@ namespace DungeonCrawl
                         Thread.Sleep(2000);
                         Console.Write(".");
                         Console.WriteLine("\nYou rolled a {0}!", dieRoll);
+                        Pause();
                     
                         if (dieRoll == 1 || dieRoll== 2)
                         {
                             Trigger();
+                            roomCounter = 10;
                         }
-                        else if (dieRoll <= 3 || dieRoll <= 10 )
+                        else if (dieRoll >= 3 || dieRoll <= 10 )
                         {
                             //activeRoom.GenerateRoom(MediumMonster);
                         }
-                        else if (dieRoll <= 11 || dieRoll <=16)
+                        else if (dieRoll >= 11 || dieRoll <=16)
                         {
                             //activeRoom.GenerateRoom(StrongMonster);
                         }
-                        else if (dieRoll <= 17 || dieRoll <= 20 )
+                        else if (dieRoll >= 17 || dieRoll <= 20 )
                         {
-                            tRoom();
+                            treasurePrintList.Add(tRoom());//adding the treasure to out printing list.                             
                         }
                         activeRoom.GenerateRoom(dieRoll);
                     }
         roomCounter++;
                 }
+                Console.WriteLine("Do you wish to play again?(Y/N)");
+                keeplooping = VerifyChoiceYN();
+                Console.Clear();
             } while (keeplooping);
         }
     }
